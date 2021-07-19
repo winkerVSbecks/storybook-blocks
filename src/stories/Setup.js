@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as THREE from 'three';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
+import { OrbitControls, OrthographicCamera } from '@react-three/drei';
 
 export function Setup({
   children,
@@ -18,11 +18,12 @@ export function Setup({
       dpr={window.devicePixelRatio}
       {...restProps}
     >
+      <OrthographicCamera makeDefault position={cameraPosition} zoom={10} />
       {children}
       {lights && (
         <>
           <ambientLight intensity={0.8} />
-          <pointLight intensity={1} position={[0, 6, 0]} />
+          <pointLight intensity={1} position={[0, 30, 0]} />
         </>
       )}
       {controls && <OrbitControls />}

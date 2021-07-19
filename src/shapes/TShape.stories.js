@@ -4,11 +4,11 @@ import * as THREE from 'three';
 import { Setup } from '../stories/Setup';
 import { useTurntable } from '../stories/useTurntable';
 
-import { LShape } from './LShape';
+import { TShape } from './TShape';
 
 export default {
-  title: 'Shapes/LShape',
-  component: LShape,
+  title: 'Shapes/TShape',
+  component: TShape,
   decorators: [
     (storyFn) => {
       return (
@@ -20,14 +20,14 @@ export default {
   ],
 };
 
-const LShapeScene = () => {
+const TShapeScene = () => {
   const ref = useTurntable();
 
   return (
-    <LShape ref={ref} scale={[0.25, 0.25, 0.25]}>
-      <meshStandardMaterial attach="material" color="#1EA7FD" />
-    </LShape>
+    <TShape ref={ref} scale={[0.25, 0.25, 0.25]}>
+      <meshStandardMaterial attach="material" color="#37D5D3" />
+    </TShape>
   );
 };
 
-export const Default = () => <LShapeScene />;
+export const Default = () => <TShapeScene />;
