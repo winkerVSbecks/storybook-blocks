@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as THREE from 'three';
-import { colors } from './colors';
+import { SIDE } from './constants';
 import { IShape } from './shapes/IShape';
 import { LShape } from './shapes/LShape';
 import { OShape } from './shapes/OShape';
@@ -9,22 +9,15 @@ import { ZShape } from './shapes/ZShape';
 
 export const ComponentDriven = () => {
   return (
-    <group>
-      <IShape scale={[0.25, 0.25, 0.25]}>
-        <meshStandardMaterial attach="material" color={colors.purple} />
-      </IShape>
-      <LShape scale={[0.25, 0.25, 0.25]}>
-        <meshStandardMaterial attach="material" color={colors.ocean} />
-      </LShape>
-      <OShape scale={[0.25, 0.25, 0.25]}>
-        <meshStandardMaterial attach="material" color={colors.purple} />
-      </OShape>
-      <TShape scale={[0.25, 0.25, 0.25]}>
-        <meshStandardMaterial attach="material" color={colors.purple} />
-      </TShape>
-      <ZShape scale={[0.25, 0.25, 0.25]}>
-        <meshStandardMaterial attach="material" color={colors.purple} />
-      </ZShape>
+    <group
+      position={[-2 * SIDE, -SIDE / 2, -SIDE]}
+      rotation={[-Math.PI / 2, 0, 0]}
+    >
+      <IShape position={[0, 0, 0]} />
+      <LShape position={[0, -3 * SIDE, 0]} />
+      <ZShape position={[2 * SIDE, -3 * SIDE, 0]} />
+      <TShape position={[3 * SIDE, -2 * SIDE, 0]} />
+      <OShape position={[3 * SIDE, -3 * SIDE, 0]} />
     </group>
   );
 };

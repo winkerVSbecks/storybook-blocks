@@ -19,8 +19,8 @@ export default {
 };
 
 const LShapeScene = () => {
-  const ref = useTurntable();
-  return <LShape ref={ref} />;
+  // const ref = useTurntable();
+  return <LShape />;
 };
 
 export const Default = () => <LShapeScene />;

@@ -2,8 +2,8 @@ import * as React from 'react';
 import * as THREE from 'three';
 import { Setup } from './stories/Setup';
 import { useTurntable } from './stories/useTurntable';
-import { colors } from './colors';
 import { ComponentDriven } from './ComponentDriven';
+import { SIDE } from './constants';
 
 export default {
   title: 'ComponentDriven',
@@ -11,7 +11,10 @@ export default {
   decorators: [
     (storyFn) => {
       return (
-        <Setup cameraPosition={new THREE.Vector3(-30, 30, 30)}>
+        <Setup
+          cameraPosition={new THREE.Vector3(-30, 30, 30)}
+          lightPosition={[-5 * SIDE, 0, 2.5 * SIDE]}
+        >
           {storyFn()}
         </Setup>
       );
@@ -21,11 +24,11 @@ export default {
 
 const ComponentDrivenScene = () => {
   const ref = useTurntable();
-
   return (
-    <ComponentDriven ref={ref} scale={[0.25, 0.25, 0.25]}>
-      <meshStandardMaterial attach="material" color={colors.purple} />
-    </ComponentDriven>
+    <>
+      <axesHelper args={[SIDE * 2]} />
+      <ComponentDriven ref={ref} />
+    </>
   );
 };
 

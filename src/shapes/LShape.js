@@ -10,10 +10,10 @@ export const LShape = React.forwardRef((props, ref) => {
 
     _shape.moveTo(0, 0);
     _shape.lineTo(SIDE * 2, 0);
-    _shape.lineTo(SIDE * 2, SIDE * 3);
-    _shape.lineTo(SIDE, SIDE * 3);
+    _shape.lineTo(SIDE * 2, SIDE);
     _shape.lineTo(SIDE, SIDE);
-    _shape.lineTo(0, SIDE);
+    _shape.lineTo(SIDE, SIDE * 3);
+    _shape.lineTo(0, SIDE * 3);
 
     return _shape;
   }, []);
