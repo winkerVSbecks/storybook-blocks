@@ -2,11 +2,11 @@ import * as React from 'react';
 import * as THREE from 'three';
 import { Setup } from '../stories/Setup';
 import { useTurntable } from '../stories/useTurntable';
-import { LShape } from './LShape';
+import { IShape } from './IShape';
 
 export default {
-  title: 'Shapes',
-  component: LShape,
+  title: 'Shapes/IShape',
+  component: IShape,
   decorators: [
     (storyFn) => {
       return (
@@ -18,10 +18,10 @@ export default {
   ],
 };
 
-const LShapeScene = () => {
+const IShapeScene = () => {
   const ref = useTurntable();
-  return <LShape ref={ref} />;
+  return <IShape ref={ref} />;
 };
 
-export const Default = () => <LShapeScene />;
-Default.storyName = 'LShape';
+export const Default = () => <IShapeScene />;
+Default.storyName = 'IShape';

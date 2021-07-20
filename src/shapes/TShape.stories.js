@@ -1,9 +1,7 @@
 import * as React from 'react';
 import * as THREE from 'three';
-
 import { Setup } from '../stories/Setup';
 import { useTurntable } from '../stories/useTurntable';
-
 import { TShape } from './TShape';
 
 export default {
@@ -22,12 +20,8 @@ export default {
 
 const TShapeScene = () => {
   const ref = useTurntable();
-
-  return (
-    <TShape ref={ref} scale={[0.25, 0.25, 0.25]}>
-      <meshStandardMaterial attach="material" color="#37D5D3" />
-    </TShape>
-  );
+  return <TShape ref={ref} />;
 };
 
 export const Default = () => <TShapeScene />;
+Default.storyName = 'TShape';

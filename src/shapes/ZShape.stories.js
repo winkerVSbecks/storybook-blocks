@@ -1,9 +1,7 @@
 import * as React from 'react';
 import * as THREE from 'three';
-
 import { Setup } from '../stories/Setup';
 import { useTurntable } from '../stories/useTurntable';
-
 import { ZShape } from './ZShape';
 
 export default {
@@ -22,12 +20,8 @@ export default {
 
 const ZShapeScene = () => {
   const ref = useTurntable();
-
-  return (
-    <ZShape ref={ref} scale={[0.25, 0.25, 0.25]}>
-      <meshStandardMaterial attach="material" color="#FF4785" />
-    </ZShape>
-  );
+  return <ZShape ref={ref} />;
 };
 
 export const Default = () => <ZShapeScene />;
+Default.storyName = 'ZShape';
