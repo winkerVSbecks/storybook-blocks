@@ -13,7 +13,7 @@ export default {
       return (
         <Setup
           cameraPosition={new THREE.Vector3(-30, 30, 30)}
-          lightPosition={[-5 * SIDE, 0, 2.5 * SIDE]}
+          lightPosition={[-8 * SIDE, 0, 2.5 * SIDE]}
         >
           {storyFn()}
         </Setup>

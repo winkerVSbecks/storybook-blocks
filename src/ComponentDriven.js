@@ -13,11 +13,11 @@ export const ComponentDriven = () => {
       position={[-2 * SIDE, -SIDE / 2, -SIDE]}
       rotation={[-Math.PI / 2, 0, 0]}
     >
-      <IShape position={[0, 0, 0]} />
-      <LShape position={[0, -3 * SIDE, 0]} />
-      <ZShape position={[2 * SIDE, -3 * SIDE, 0]} />
-      <TShape position={[3 * SIDE, -2 * SIDE, 0]} />
-      <OShape position={[3 * SIDE, -3 * SIDE, 0]} />
+      <IShape castShadow receiveShadow position={[0, 0, 0]} />
+      <LShape castShadow receiveShadow position={[0, -3 * SIDE, 0]} />
+      <ZShape castShadow receiveShadow position={[2 * SIDE, -3 * SIDE, 0]} />
+      <TShape castShadow receiveShadow position={[3 * SIDE, -2 * SIDE, 0]} />
+      <OShape castShadow receiveShadow position={[3 * SIDE, -3 * SIDE, 0]} />
     </group>
   );
 };
