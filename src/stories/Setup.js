@@ -19,7 +19,7 @@ const Lights = ({ position }) => {
       <spotLight
         ref={light}
         castShadow
-        intensity={2}
+        intensity={5}
         position={position}
         angle={Math.PI / 7}
         penumbra={1}

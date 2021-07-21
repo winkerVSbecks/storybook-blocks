@@ -20,7 +20,11 @@ export const LShape = React.forwardRef((props, ref) => {
 
   return (
     <Extrude args={[shape, EXTRUDE_SETTINGS]} ref={ref} {...props}>
-      <meshStandardMaterial attach="material" color={colors.ocean} />
+      <meshStandardMaterial
+        attach="material"
+        flatShading
+        color={colors.ocean}
+      />
     </Extrude>
   );
 });

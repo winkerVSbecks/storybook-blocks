@@ -18,7 +18,11 @@ export const IShape = React.forwardRef((props, ref) => {
 
   return (
     <Extrude args={[shape, EXTRUDE_SETTINGS]} ref={ref} {...props}>
-      <meshStandardMaterial attach="material" color={colors.purple} />
+      <meshStandardMaterial
+        attach="material"
+        flatShading
+        color={colors.purple}
+      />
     </Extrude>
   );
 });

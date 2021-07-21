@@ -22,7 +22,11 @@ export const TShape = React.forwardRef((props, ref) => {
 
   return (
     <Extrude args={[shape, EXTRUDE_SETTINGS]} ref={ref} {...props}>
-      <meshStandardMaterial attach="material" color={colors.seafoam} />
+      <meshStandardMaterial
+        attach="material"
+        flatShading
+        color={colors.seafoam}
+      />
     </Extrude>
   );
 });

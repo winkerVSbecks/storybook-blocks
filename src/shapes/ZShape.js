@@ -22,7 +22,11 @@ export const ZShape = React.forwardRef((props, ref) => {
 
   return (
     <Extrude args={[shape, EXTRUDE_SETTINGS]} ref={ref} {...props}>
-      <meshStandardMaterial attach="material" color={colors.coral} />
+      <meshStandardMaterial
+        attach="material"
+        flatShading
+        color={colors.coral}
+      />
     </Extrude>
   );
 });
