@@ -1,5 +1,4 @@
-import * as React from 'react';
-import * as THREE from 'three';
+import React from 'react';
 import { useSpring, animated } from '@react-spring/three';
 import { SIDE } from './constants';
 import { IShape } from './shapes/IShape';

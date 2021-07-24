@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import * as THREE from 'three';
 import { Extrude } from '@react-three/drei';
 import { SIDE, EXTRUDE_SETTINGS } from '../constants';
@@ -18,11 +18,7 @@ export const OShape = React.forwardRef((props, ref) => {
 
   return (
     <Extrude args={[shape, EXTRUDE_SETTINGS]} ref={ref} {...props}>
-      <meshStandardMaterial
-        attach="material"
-        flatShading
-        color={colors.green}
-      />
+      <meshStandardMaterial flatShading color={colors.green} />
     </Extrude>
   );
 });

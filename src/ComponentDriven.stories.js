@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import * as THREE from 'three';
 import { Setup } from './stories/Setup';
 import { useTurntable } from './stories/useTurntable';
