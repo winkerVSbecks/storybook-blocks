@@ -9,13 +9,11 @@ import {
 
 const Lights = ({ position }) => {
   const light = React.useRef();
-  // useHelper(light, THREE.PointLightHelper, 1, 'red');
   useHelper(light, THREE.SpotLightHelper, 'red');
 
   return (
     <>
       <ambientLight intensity={0.8} />
-      {/* <pointLight ref={light} intensity={3} position={position} /> */}
       <spotLight
         ref={light}
         castShadow

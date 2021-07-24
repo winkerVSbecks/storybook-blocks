@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useTransition, animated } from '@react-spring/web';
+import { useTransition } from '@react-spring/core';
+import { animated } from '@react-spring/web';
 
 const Container = styled.div`
   pointer-events: none;
