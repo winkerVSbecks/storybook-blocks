@@ -8,7 +8,7 @@ Globals.assign({
 });
 
 export default {
-  title: 'Compositions/Label',
+  title: 'Scene/Label',
   component: Label,
 };
 

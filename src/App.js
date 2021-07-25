@@ -1,11 +1,15 @@
-import { Plane, softShadows } from '@react-three/drei';
+import { softShadows } from '@react-three/drei';
+import { extend } from '@react-three/fiber';
+import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass';
 import { Label } from './Label';
 import { Scene } from './Scene';
-import { SIDE } from './constants';
 import { ComponentDriven } from './ComponentDriven';
 import { useCDDState } from './useCDDState';
+import { Effects } from './Effects';
 
 softShadows();
+
+extend({ UnrealBloomPass });
 
 export default function App() {
   const cddStep = useCDDState();
@@ -14,14 +18,7 @@ export default function App() {
     <>
       <Scene>
         <ComponentDriven step={cddStep} />
-        {/* <Plane
-          args={[100, 100]}
-          position={[0, -SIDE / 2, 0]}
-          rotation={[-Math.PI / 2, 0, 0]}
-          receiveShadow
-        >
-          <shadowMaterial opacity={0.05} />
-        </Plane> */}
+        <Effects />
       </Scene>
       <Label step={cddStep} />
     </>

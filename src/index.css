@@ -21,4 +21,5 @@ body,
   padding: 0;
   user-select: none;
   overflow: hidden;
+  background: linear-gradient(156.4deg, #06092c 0%, rgb(22, 19, 54) 100%);
 }

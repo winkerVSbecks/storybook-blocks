@@ -20,7 +20,6 @@ const Lights = () => {
         intensity={5}
         position={[-10 * SIDE, 0, 2.5 * SIDE]}
         angle={Math.PI / 7}
-        penumbra={1}
       />
     </>
   );
@@ -40,6 +39,8 @@ export const Scene = ({
       shadows
       camera={{ position: cameraPosition, fov: cameraFov }}
       dpr={window.devicePixelRatio}
+      alpha
+      color="#161336"
       {...restProps}
     >
       <OrthographicCamera

@@ -7,7 +7,7 @@ import { SIDE } from './constants';
 import { useCDDState } from './useCDDState';
 
 export default {
-  title: 'Compositions/ComponentDriven',
+  title: 'Scene/ComponentDriven',
   component: ComponentDriven,
   decorators: [
     (storyFn) => {

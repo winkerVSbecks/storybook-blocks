@@ -29,7 +29,7 @@ const Text = styled.div`
   font-weight: 900;
   font-size: 32px;
   overflow: hidden;
-  color: #000;
+  color: #fff;
   white-space: pre;
   text-align: center;
 
