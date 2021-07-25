@@ -4,9 +4,10 @@ import { Setup } from './stories/Setup';
 import { useTurntable } from './stories/useTurntable';
 import { ComponentDriven } from './ComponentDriven';
 import { SIDE } from './constants';
+import { useCDDState } from './useCDDState';
 
 export default {
-  title: 'ComponentDriven',
+  title: 'Compositions/ComponentDriven',
   component: ComponentDriven,
   decorators: [
     (storyFn) => {
@@ -24,10 +25,12 @@ export default {
 
 const ComponentDrivenScene = () => {
   const ref = useTurntable();
+  const cddStep = useCDDState();
+
   return (
     <>
       <axesHelper args={[SIDE * 2]} />
-      <ComponentDriven ref={ref} />
+      <ComponentDriven ref={ref} step={cddStep} />
     </>
   );
 };

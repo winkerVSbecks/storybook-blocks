@@ -13,34 +13,54 @@ const AnimatedZShape = animated(ZShape);
 const AnimatedTShape = animated(TShape);
 const AnimatedOShape = animated(OShape);
 
-export const ComponentDriven = () => {
-  const springs = useSpring({
-    from: { position: [0, -3 * SIDE, 10 * SIDE] },
-    to: { position: [0, -3 * SIDE, 0] },
-  });
+export const ComponentDriven = ({ step }) => {
+  const springI = useSpring(STATES[step]['I']);
+  const springL = useSpring(STATES[step]['L']);
+  const springZ = useSpring(STATES[step]['Z']);
+  const springT = useSpring(STATES[step]['T']);
+  const springO = useSpring(STATES[step]['O']);
 
   return (
     <group
       position={[-2 * SIDE, -SIDE / 2, -SIDE]}
       rotation={[-Math.PI / 2, 0, 0]}
     >
-      <AnimatedIShape castShadow receiveShadow position={[0, 0, 0]} />
-      <AnimatedLShape castShadow receiveShadow position={springs.position} />
-      <AnimatedZShape
-        castShadow
-        receiveShadow
-        position={[2 * SIDE, -3 * SIDE, 0]}
-      />
-      <AnimatedTShape
-        castShadow
-        receiveShadow
-        position={[3 * SIDE, -2 * SIDE, 0]}
-      />
-      <AnimatedOShape
-        castShadow
-        receiveShadow
-        position={[3 * SIDE, -3 * SIDE, 0]}
-      />
+      <AnimatedIShape castShadow receiveShadow position={springI.position} />
+      <AnimatedLShape castShadow receiveShadow position={springL.position} />
+      <AnimatedZShape castShadow receiveShadow position={springZ.position} />
+      <AnimatedTShape castShadow receiveShadow position={springT.position} />
+      <AnimatedOShape castShadow receiveShadow position={springO.position} />
     </group>
   );
 };
+
+const STATES = [
+  {
+    I: { position: [0, 0, 10 * SIDE] },
+    L: { position: [0, -3 * SIDE, SIDE] },
+    Z: { position: [2 * SIDE, -3 * SIDE, 10 * SIDE] },
+    T: { position: [3 * SIDE, -2 * SIDE, 10 * SIDE] },
+    O: { position: [3 * SIDE, -3 * SIDE, 10 * SIDE] },
+  },
+  {
+    I: { position: [0, 0, 10 * SIDE] },
+    L: { position: [0, -3 * SIDE, 0] },
+    Z: { position: [2 * SIDE, -3 * SIDE, 0] },
+    T: { position: [3 * SIDE, -2 * SIDE, 10 * SIDE] },
+    O: { position: [3 * SIDE, -3 * SIDE, 10 * SIDE] },
+  },
+  {
+    I: { position: [0, 0, 0], delay: 100 },
+    L: { position: [0, -3 * SIDE, 0] },
+    Z: { position: [2 * SIDE, -3 * SIDE, 0] },
+    T: { position: [3 * SIDE, -2 * SIDE, 0], delay: 50 },
+    O: { position: [3 * SIDE, -3 * SIDE, 0], delay: 0 },
+  },
+  {
+    I: { position: [0, 0, SIDE] },
+    L: { position: [0, -3 * SIDE, SIDE] },
+    Z: { position: [2 * SIDE, -3 * SIDE, SIDE] },
+    T: { position: [3 * SIDE, -2 * SIDE, SIDE] },
+    O: { position: [3 * SIDE, -3 * SIDE, SIDE] },
+  },
+];

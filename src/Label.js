@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useTransition } from '@react-spring/core';
-import { animated } from '@react-spring/web';
+import { useTransition, animated } from '@react-spring/web';
 
 const Container = styled.div`
   pointer-events: none;
@@ -28,11 +27,19 @@ const Box = styled(animated.div)`
 const Text = styled.div`
   font-family: 'Nunito Sans', sans-serif;
   font-weight: 900;
-  font-size: 48px;
+  font-size: 32px;
   overflow: hidden;
   color: #000;
   white-space: pre;
   text-align: center;
+
+  @media (min-width: 40em) {
+    font-size: 40px;
+  }
+
+  @media (min-width: 52em) {
+    font-size: 48px;
+  }
 `;
 
 const labels = ['Atomic components', 'Composite components', 'Pages', 'Apps'];

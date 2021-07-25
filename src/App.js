@@ -1,20 +1,28 @@
-import { Canvas } from '@react-three/fiber';
+import { Plane, softShadows } from '@react-three/drei';
 import { Label } from './Label';
+import { Scene } from './Scene';
+import { SIDE } from './constants';
+import { ComponentDriven } from './ComponentDriven';
 import { useCDDState } from './useCDDState';
+
+softShadows();
 
 export default function App() {
   const cddStep = useCDDState();
 
   return (
     <>
-      <Canvas pixelRatio={Math.min(2, window.devicePixelRatio || 1)}>
-        <ambientLight intensity={0.1} />
-        <directionalLight color="red" position={[0, 0, 5]} />
-        <mesh>
-          <boxGeometry />
-          <meshPhongMaterial />
-        </mesh>
-      </Canvas>
+      <Scene>
+        <ComponentDriven step={cddStep} />
+        {/* <Plane
+          args={[100, 100]}
+          position={[0, -SIDE / 2, 0]}
+          rotation={[-Math.PI / 2, 0, 0]}
+          receiveShadow
+        >
+          <shadowMaterial opacity={0.05} />
+        </Plane> */}
+      </Scene>
       <Label step={cddStep} />
     </>
   );

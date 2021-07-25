@@ -1,9 +1,14 @@
 import React from 'react';
 import { Label } from './Label';
+import { Globals } from '@react-spring/shared';
 import { useCDDState } from './useCDDState';
 
+Globals.assign({
+  frameLoop: 'always',
+});
+
 export default {
-  title: 'Label',
+  title: 'Compositions/Label',
   component: Label,
 };
 
