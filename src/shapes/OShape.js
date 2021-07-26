@@ -1,10 +1,12 @@
 import React from 'react';
 import * as THREE from 'three';
 import { Extrude } from '@react-three/drei';
+import { animated } from '@react-spring/three';
 import { SIDE, EXTRUDE_SETTINGS } from '../constants';
-import { colors } from '../colors';
 
-export const OShape = React.forwardRef((props, ref) => {
+const AnimatedExtrude = animated(Extrude);
+
+export const OShape = React.forwardRef(({ color, ...props }, ref) => {
   const shape = React.useMemo(() => {
     const _shape = new THREE.Shape();
 
@@ -17,8 +19,8 @@ export const OShape = React.forwardRef((props, ref) => {
   }, []);
 
   return (
-    <Extrude args={[shape, EXTRUDE_SETTINGS]} ref={ref} {...props}>
-      <meshStandardMaterial flatShading color={colors.green} />
-    </Extrude>
+    <AnimatedExtrude args={[shape, EXTRUDE_SETTINGS]} ref={ref} {...props}>
+      <animated.meshStandardMaterial flatShading color={color} />
+    </AnimatedExtrude>
   );
 });

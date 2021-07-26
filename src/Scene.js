@@ -41,7 +41,7 @@ export const Scene = ({
       dpr={window.devicePixelRatio}
       // alpha
       onCreated={({ gl }) => {
-        gl.setClearColor(new THREE.Color('#00f'));
+        gl.setClearColor(new THREE.Color('#06092c'));
       }}
       {...restProps}
     >
