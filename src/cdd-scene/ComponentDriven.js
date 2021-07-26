@@ -1,12 +1,8 @@
 import React from 'react';
 import { useSpring } from '@react-spring/three';
-import { SIDE } from './constants';
-import { colors } from './colors';
-import { IShape } from './shapes/IShape';
-import { LShape } from './shapes/LShape';
-import { OShape } from './shapes/OShape';
-import { TShape } from './shapes/TShape';
-import { ZShape } from './shapes/ZShape';
+import { SIDE } from '../constants';
+import { colors } from '../colors';
+import { Shape } from '../meshes/Shape';
 
 export const ComponentDriven = ({ step }) => {
   const springI = useSpring(STATES[step]['I']);
@@ -20,31 +16,36 @@ export const ComponentDriven = ({ step }) => {
       position={[-2 * SIDE, -SIDE / 2, -SIDE]}
       rotation={[-Math.PI / 2, 0, 0]}
     >
-      <IShape
+      <Shape
+        type="I"
         castShadow
         receiveShadow
         position={springI.position}
         color={springI.color}
       />
-      <LShape
+      <Shape
+        type="L"
         castShadow
         receiveShadow
         position={springL.position}
         color={springL.color}
       />
-      <ZShape
+      <Shape
+        type="Z"
         castShadow
         receiveShadow
         position={springZ.position}
         color={springZ.color}
       />
-      <TShape
+      <Shape
+        type="T"
         castShadow
         receiveShadow
         position={springT.position}
         color={springT.color}
       />
-      <OShape
+      <Shape
+        type="O"
         castShadow
         receiveShadow
         position={springO.position}

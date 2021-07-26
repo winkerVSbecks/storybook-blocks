@@ -1,13 +1,13 @@
 import React from 'react';
 import * as THREE from 'three';
-import { Setup } from './stories/Setup';
-import { useTurntable } from './stories/useTurntable';
+import { Setup } from '../stories/Setup';
+import { useTurntable } from '../stories/useTurntable';
 import { ComponentDriven } from './ComponentDriven';
-import { SIDE } from './constants';
+import { SIDE } from '../constants';
 import { useCDDState } from './useCDDState';
 
 export default {
-  title: 'Scene/ComponentDriven',
+  title: 'CDD-Scene/ComponentDriven',
   component: ComponentDriven,
   decorators: [
     (storyFn) => {

@@ -8,7 +8,7 @@ Globals.assign({
 });
 
 export default {
-  title: 'Scene/Label',
+  title: 'CDD-Scene/Label',
   component: Label,
 };
 

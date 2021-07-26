@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import './materials/GridMaterial';
+import '../materials/GridMaterial';
 
 export const State = () => {
   return (

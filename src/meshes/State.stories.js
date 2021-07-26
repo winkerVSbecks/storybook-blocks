@@ -1,10 +1,10 @@
 import React from 'react';
 import * as THREE from 'three';
-import { Setup } from './stories/Setup';
+import { Setup } from '../stories/Setup';
 import { State } from './State';
 
 export default {
-  title: 'Scene/State',
+  title: 'Meshes/State',
   decorators: [
     (storyFn) => {
       return (

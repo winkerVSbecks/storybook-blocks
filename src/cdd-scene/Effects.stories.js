@@ -1,17 +1,17 @@
 import React from 'react';
 import * as THREE from 'three';
 import { Globals } from '@react-spring/shared';
-import { Setup } from './stories/Setup';
+import { Setup } from '../stories/Setup';
 import { Effects } from './Effects';
-import { SIDE } from './constants';
-import { useTurntable } from './stories/useTurntable';
+import { SIDE } from '../constants';
+import { useTurntable } from '../stories/useTurntable';
 
 Globals.assign({
   frameLoop: 'always',
 });
 
 export default {
-  title: 'Scene/Effects',
+  title: 'CDD-Scene/Effects',
   component: Effects,
   decorators: [
     (storyFn) => {

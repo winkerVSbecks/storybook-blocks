@@ -1,11 +1,11 @@
 import { softShadows } from '@react-three/drei';
 import { extend } from '@react-three/fiber';
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass';
-import { Label } from './Label';
-import { Scene } from './Scene';
-import { ComponentDriven } from './ComponentDriven';
-import { useCDDState } from './useCDDState';
-import { Effects } from './Effects';
+import { Stage } from './Stage';
+import { useCDDState } from './cdd-scene/useCDDState';
+import { Label } from './cdd-scene/Label';
+import { ComponentDriven } from './cdd-scene/ComponentDriven';
+import { Effects } from './cdd-scene/Effects';
 
 softShadows();
 
@@ -16,10 +16,10 @@ export default function App() {
 
   return (
     <>
-      <Scene>
+      <Stage>
         <ComponentDriven step={cddStep} />
         <Effects />
-      </Scene>
+      </Stage>
       <Label step={cddStep} />
     </>
   );

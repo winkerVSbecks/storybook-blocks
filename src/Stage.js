@@ -25,7 +25,7 @@ const Lights = () => {
   );
 };
 
-export const Scene = ({
+export const Stage = ({
   children,
   cameraFov = 75,
   cameraPosition = new THREE.Vector3(-5, 5, 5),
