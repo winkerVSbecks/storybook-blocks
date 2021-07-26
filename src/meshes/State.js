@@ -1,11 +1,13 @@
 import * as THREE from 'three';
+import { animated } from '@react-spring/three';
 import '../materials/GridMaterial';
+import { SIDE } from '../constants';
 
-export const State = () => {
+export const State = ({ opacity, ...props }) => {
   return (
-    <mesh rotation={[-Math.PI / 2, 0, 0]}>
-      <planeGeometry args={[50, 50, 1, 1]} />
+    <animated.mesh {...props}>
+      <planeGeometry args={[4 * SIDE, 4 * SIDE, 1, 1]} />
       <gridMaterial side={THREE.DoubleSide} />
-    </mesh>
+    </animated.mesh>
   );
 };

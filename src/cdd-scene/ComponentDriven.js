@@ -3,6 +3,7 @@ import { useSpring } from '@react-spring/three';
 import { SIDE } from '../constants';
 import { colors } from '../colors';
 import { Shape } from '../meshes/Shape';
+import { State } from '../meshes/State';
 
 export const ComponentDriven = ({ step }) => {
   const springI = useSpring(STATES[step]['I']);
@@ -10,6 +11,7 @@ export const ComponentDriven = ({ step }) => {
   const springZ = useSpring(STATES[step]['Z']);
   const springT = useSpring(STATES[step]['T']);
   const springO = useSpring(STATES[step]['O']);
+  const springState = useSpring(STATES[step]['state']);
 
   return (
     <group
@@ -51,6 +53,7 @@ export const ComponentDriven = ({ step }) => {
         position={springO.position}
         color={springO.color}
       />
+      <State position={springState.position} scale={springState.scale} />
     </group>
   );
 };
@@ -62,6 +65,11 @@ const STATES = [
     Z: { position: [2 * SIDE, -3 * SIDE, 10 * SIDE], color: colors.coral },
     T: { position: [3 * SIDE, -2 * SIDE, 10 * SIDE], color: colors.gold },
     O: { position: [3 * SIDE, -3 * SIDE, 10 * SIDE], color: colors.green },
+    state: {
+      position: [2 * SIDE, -1 * SIDE, 0],
+      scale: [0, 0, 0],
+      immediate: true,
+    },
   },
   {
     I: {
@@ -89,6 +97,7 @@ const STATES = [
       position: [3 * SIDE, -3 * SIDE, 10 * SIDE],
       color: colors.green,
     },
+    state: {},
   },
   {
     I: {
@@ -116,6 +125,7 @@ const STATES = [
       position: [3 * SIDE, -3 * SIDE, 0],
       color: colors.purple,
     },
+    state: { scale: [1, 1, 1], delay: 600, immediate: true },
   },
   {
     I: {
@@ -143,5 +153,6 @@ const STATES = [
       position: [3 * SIDE, -3 * SIDE, SIDE],
       color: colors.purple,
     },
+    state: { position: [2 * SIDE, -1 * SIDE, -0.5 * SIDE] },
   },
 ];
