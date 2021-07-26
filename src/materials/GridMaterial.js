@@ -5,9 +5,13 @@ import glsl from 'babel-plugin-glsl/macro';
 
 const GridMaterial = shaderMaterial(
   {
-    time: 0,
-    color: new THREE.Color(0.2, 0.0, 0.1),
-    u_resolution: { type: 'v2', value: new THREE.Vector2() },
+    bg: new THREE.Color('#111033'),
+    yellow: new THREE.Color('#ffd600'),
+    orange: new THREE.Color('#ff7300'),
+    pink: new THREE.Color('#ff4685'),
+    purple: new THREE.Color('#6e2cac'),
+    blue: new THREE.Color('#00ffff'),
+    green: new THREE.Color('#cfff58'),
   },
   // vertex shader
   glsl/* glsl */ `
@@ -24,18 +28,10 @@ const GridMaterial = shaderMaterial(
     precision mediump float;
     #endif
 
+    uniform vec3 bg;
+    uniform vec3 blue;
+    uniform vec3 green;
     varying vec2 vUv;
-
-    #define bg vec3(0.067,0.063,0.2)
-
-    #define yellow vec3(1.,0.843,0.)
-    #define orange vec3(1.,0.451,0.)
-
-    #define pink vec3(1.,0.278,0.522)
-    #define purple vec3(0.435,0.173,0.675)
-
-    #define blue vec3(0.,1.,1.)
-    #define green vec3(0.812,1.,0.349)
 
     vec2 tile(vec2 st, float zoom){
       st *= zoom;

@@ -7,7 +7,7 @@ import { SIDE, EXTRUDE_SETTINGS } from '../constants';
 const AnimatedExtrude = animated(Extrude);
 
 export const Shape = React.forwardRef(({ type, color, ...props }, ref) => {
-  const shape = React.useMemo(TYPES[type], []);
+  const shape = React.useMemo(() => TYPES[type](), [type]);
 
   return (
     <AnimatedExtrude args={[shape, EXTRUDE_SETTINGS]} ref={ref} {...props}>
