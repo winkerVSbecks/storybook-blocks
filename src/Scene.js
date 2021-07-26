@@ -39,8 +39,10 @@ export const Scene = ({
       shadows
       camera={{ position: cameraPosition, fov: cameraFov }}
       dpr={window.devicePixelRatio}
-      alpha
-      color="#161336"
+      // alpha
+      onCreated={({ gl }) => {
+        gl.setClearColor(new THREE.Color('#00f'));
+      }}
       {...restProps}
     >
       <OrthographicCamera

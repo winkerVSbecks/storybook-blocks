@@ -15,7 +15,7 @@ export const colors = {
   tertiary: '#DDDDDD',
   orange: '#FC521F',
   gold: '#FFAE00',
-  green: '#00AF91',
+  green: '#00c000',
   seafoam: '#05DFD7',
   purple: '#4D089A',
 };
