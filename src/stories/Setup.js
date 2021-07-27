@@ -30,7 +30,6 @@ const Lights = ({ position }) => {
 
 export function Setup({
   children,
-  cameraFov = 75,
   cameraPosition = new THREE.Vector3(-5, 5, 5),
   controls = true,
   lights = true,
@@ -38,12 +37,7 @@ export function Setup({
   ...restProps
 }) {
   return (
-    <Canvas
-      shadows
-      camera={{ position: cameraPosition, fov: cameraFov }}
-      dpr={window.devicePixelRatio}
-      {...restProps}
-    >
+    <Canvas shadows dpr={window.devicePixelRatio} {...restProps}>
       <OrthographicCamera makeDefault position={cameraPosition} zoom={10} />
       {children}
       {lights && <Lights position={lightPosition} />}

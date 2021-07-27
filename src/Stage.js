@@ -8,14 +8,6 @@ const Lights = () => {
   return (
     <>
       <ambientLight intensity={0.8} />
-      {/* <spotLight
-        castShadow
-        intensity={0.5}
-        position={[0, 8 * SIDE, 0]}
-        angle={Math.PI / 6}
-        shadow-mapSize-width={1024}
-        shadow-mapSize-height={1024}
-      /> */}
       <spotLight
         intensity={5}
         position={[-10 * SIDE, 0, 2.5 * SIDE]}
@@ -27,23 +19,19 @@ const Lights = () => {
 
 export const Stage = ({
   children,
-  cameraFov = 75,
-  cameraPosition = new THREE.Vector3(-5, 5, 5),
   controls = true,
   lights = true,
   lightPosition = [-10, -35, 5],
-  ...restProps
+  ...props
 }) => {
   return (
     <Canvas
       shadows
-      camera={{ position: cameraPosition, fov: cameraFov }}
       dpr={window.devicePixelRatio}
-      // alpha
       onCreated={({ gl }) => {
         gl.setClearColor(new THREE.Color('#06092c'));
       }}
-      {...restProps}
+      {...props}
     >
       <OrthographicCamera
         makeDefault
@@ -52,7 +40,11 @@ export const Stage = ({
       />
       {children}
       <Lights />
-      <OrbitControls />
+      <OrbitControls
+        enableZoom={false}
+        enablePan={false}
+        enableRotate={false}
+      />
     </Canvas>
   );
 };
