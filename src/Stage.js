@@ -25,14 +25,8 @@ export const Stage = ({
   ...props
 }) => {
   return (
-    <Canvas
-      shadows
-      dpr={window.devicePixelRatio}
-      onCreated={({ gl }) => {
-        gl.setClearColor(new THREE.Color('#06092c'));
-      }}
-      {...props}
-    >
+    <Canvas shadows dpr={window.devicePixelRatio} {...props}>
+      <color attach="background" args={['#06092c']} />
       <OrthographicCamera
         makeDefault
         position={new THREE.Vector3(-30, 30, 30)}

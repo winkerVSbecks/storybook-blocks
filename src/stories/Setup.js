@@ -38,6 +38,7 @@ export function Setup({
 }) {
   return (
     <Canvas shadows dpr={window.devicePixelRatio} {...restProps}>
+      <color attach="background" args={['#06092c']} />
       <OrthographicCamera makeDefault position={cameraPosition} zoom={10} />
       {children}
       {lights && <Lights position={lightPosition} />}
