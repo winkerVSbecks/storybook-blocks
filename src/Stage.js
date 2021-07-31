@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import * as THREE from 'three';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, OrthographicCamera } from '@react-three/drei';
+import {
+  OrbitControls,
+  OrthographicCamera,
+  Environment,
+} from '@react-three/drei';
 import { SIDE } from './constants';
 
 const Lights = () => {
@@ -27,13 +31,15 @@ export const Stage = ({
   return (
     <Canvas shadows dpr={window.devicePixelRatio} {...props}>
       <color attach="background" args={['#06092c']} />
-      <OrthographicCamera
-        makeDefault
-        position={new THREE.Vector3(-30, 30, 30)}
-        zoom={10}
-      />
-      {children}
-      <Lights />
+      <Suspense fallback={null}>
+        <OrthographicCamera
+          makeDefault
+          position={new THREE.Vector3(-30, 30, 30)}
+          zoom={10}
+        />
+        {children}
+        <Lights />
+      </Suspense>
       <OrbitControls
         enableZoom={false}
         enablePan={false}

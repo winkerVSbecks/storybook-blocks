@@ -6,15 +6,43 @@ import { SIDE, EXTRUDE_SETTINGS } from '../constants';
 
 const AnimatedExtrude = animated(Extrude);
 
-export const Shape = React.forwardRef(({ type, color, ...props }, ref) => {
-  const shape = React.useMemo(() => TYPES[type](), [type]);
+export const Shape = React.forwardRef(
+  (
+    {
+      type,
+      color,
+      thickness = SIDE,
+      roughness = 0.4,
+      clearcoat = 1,
+      clearcoatRoughness = 1,
+      transmission = 0.8,
+      ior = 1.25,
+      attenuationTint = '#fff',
+      attenuationDistance = 0,
+      ...props
+    },
+    ref
+  ) => {
+    const shape = React.useMemo(() => TYPES[type](), [type]);
 
-  return (
-    <AnimatedExtrude args={[shape, EXTRUDE_SETTINGS]} ref={ref} {...props}>
-      <animated.meshStandardMaterial flatShading color={color} />
-    </AnimatedExtrude>
-  );
-});
+    return (
+      <AnimatedExtrude args={[shape, EXTRUDE_SETTINGS]} ref={ref} {...props}>
+        <animated.meshPhysicalMaterial
+          flatShading
+          color={color}
+          thickness={thickness}
+          roughness={roughness}
+          clearcoat={clearcoat}
+          clearcoatRoughness={clearcoatRoughness}
+          transmission={transmission}
+          ior={ior}
+          attenuationTint={attenuationTint}
+          attenuationDistance={attenuationDistance}
+        />
+      </AnimatedExtrude>
+    );
+  }
+);
 
 const TYPES = {
   I: () => {

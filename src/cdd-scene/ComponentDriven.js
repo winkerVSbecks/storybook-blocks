@@ -6,7 +6,7 @@ import { Shape } from '../meshes/Shape';
 import { State } from '../meshes/State';
 import { Data } from '../meshes/Data';
 
-export const ComponentDriven = ({ step }) => {
+export const ComponentDriven = ({ step, ...shapeProps }) => {
   const springI = useSpring(STATES[step]['I']);
   const springL = useSpring(STATES[step]['L']);
   const springZ = useSpring(STATES[step]['Z']);
@@ -20,41 +20,11 @@ export const ComponentDriven = ({ step }) => {
       position={[-2 * SIDE, -SIDE / 2, -SIDE]}
       rotation={[-Math.PI / 2, 0, 0]}
     >
-      <Shape
-        type="I"
-        castShadow
-        receiveShadow
-        position={springI.position}
-        color={springI.color}
-      />
-      <Shape
-        type="L"
-        castShadow
-        receiveShadow
-        position={springL.position}
-        color={springL.color}
-      />
-      <Shape
-        type="Z"
-        castShadow
-        receiveShadow
-        position={springZ.position}
-        color={springZ.color}
-      />
-      <Shape
-        type="T"
-        castShadow
-        receiveShadow
-        position={springT.position}
-        color={springT.color}
-      />
-      <Shape
-        type="O"
-        castShadow
-        receiveShadow
-        position={springO.position}
-        color={springO.color}
-      />
+      <Shape type="I" position={springI.position} color={springI.color} />
+      <Shape type="L" position={springL.position} color={springL.color} />
+      <Shape type="Z" position={springZ.position} color={springZ.color} />
+      <Shape type="T" position={springT.position} color={springT.color} />
+      <Shape type="O" position={springO.position} color={springO.color} />
       <Data position={springData.position} scale={springData.scale} />
       <State position={springState.position} scale={springState.scale} />
     </group>
@@ -71,12 +41,12 @@ const STATES = [
     state: {
       position: [2 * SIDE, -1 * SIDE, 0],
       scale: [0, 0, 0],
-      // immediate: true,
+      immediate: true,
     },
     data: {
       position: [2 * SIDE, -1 * SIDE, 0],
       scale: [0, 0, 0],
-      // immediate: true,
+      immediate: true,
     },
   },
   {
@@ -134,13 +104,8 @@ const STATES = [
       position: [3 * SIDE, -3 * SIDE, 0],
       color: colors.purple,
     },
-    state: { scale: [1, 1, 1], delay: 600, immediate: true },
-    data: {
-      scale: [1, 1, 1],
-      position: [2 * SIDE, -1 * SIDE, 0.5 * SIDE],
-      delay: 600,
-      immediate: true,
-    },
+    state: { scale: [1, 1, 1], delay: 1200, immediate: true },
+    data: { scale: [1, 1, 1], delay: 1200, immediate: true },
   },
   {
     I: {
