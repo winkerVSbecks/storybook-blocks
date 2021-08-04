@@ -5,17 +5,18 @@ import {
   OrbitControls,
   OrthographicCamera,
   useHelper,
+  Center,
 } from '@react-three/drei';
 
-const Lights = ({ position }) => {
+const Lights = ({ position, debug }) => {
   const light = React.useRef();
-  useHelper(light, THREE.SpotLightHelper, 'red');
+  useHelper(light, THREE.SpotLightHelper, 'yellow');
 
   return (
     <>
       <ambientLight intensity={0.8} />
       <spotLight
-        ref={light}
+        ref={debug ? light : null}
         castShadow
         intensity={5}
         position={position}
@@ -34,14 +35,16 @@ export function Setup({
   controls = true,
   lights = true,
   lightPosition = [-10, -35, 5],
+  center = false,
+  debugLights = false,
   ...restProps
 }) {
   return (
     <Canvas shadows dpr={window.devicePixelRatio} {...restProps}>
       <color attach="background" args={['#06092c']} />
       <OrthographicCamera makeDefault position={cameraPosition} zoom={10} />
-      {children}
-      {lights && <Lights position={lightPosition} />}
+      {center ? <Center>{children}</Center> : children}
+      {lights && <Lights debug={debugLights} position={lightPosition} />}
       {controls && <OrbitControls />}
     </Canvas>
   );

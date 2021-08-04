@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import * as THREE from 'three';
 import { Setup } from '../stories/Setup';
 import { useTurntable } from '../stories/useTurntable';
@@ -10,7 +10,7 @@ export default {
   decorators: [
     (storyFn) => {
       return (
-        <Setup cameraPosition={new THREE.Vector3(-30, 30, 30)}>
+        <Setup cameraPosition={new THREE.Vector3(-30, 30, 30)} center>
           {storyFn()}
         </Setup>
       );
@@ -45,9 +45,10 @@ export default {
 const ShapeScene = ({ type }) => {
   const ref = useTurntable();
   return (
-    <Suspense fallback={null}>
-      <Shape ref={ref} type={type} color="#fff" />
-    </Suspense>
+    <>
+      <Shape ref={ref} type={type} color="#1EA7FD" />
+      <gridHelper args={[200, 40]} />
+    </>
   );
 };
 
