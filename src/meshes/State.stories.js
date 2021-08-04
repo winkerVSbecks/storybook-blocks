@@ -17,7 +17,7 @@ export default {
 };
 
 const StateScene = () => {
-  return <State />;
+  return <State rotation={[-Math.PI / 2, 0, 0]} />;
 };
 
 export const Default = () => <StateScene />;

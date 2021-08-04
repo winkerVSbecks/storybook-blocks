@@ -17,7 +17,7 @@ export default {
 };
 
 const DataScene = () => {
-  return <Data />;
+  return <Data rotation={[-Math.PI / 2, 0, 0]} />;
 };
 
 export const Default = () => <DataScene />;

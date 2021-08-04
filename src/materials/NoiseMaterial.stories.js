@@ -10,9 +10,7 @@ export default {
   decorators: [
     (storyFn) => {
       return (
-        <Setup cameraPosition={new THREE.Vector3(-30, 30, 30)}>
-          {storyFn()}
-        </Setup>
+        <Setup cameraPosition={new THREE.Vector3(0, 0, 30)}>{storyFn()}</Setup>
       );
     },
   ],
@@ -29,7 +27,7 @@ const NoiseMaterialScene = () => {
 
   return (
     <>
-      <mesh rotation={[-Math.PI / 2, 0, 0]}>
+      <mesh>
         <planeGeometry args={[50, 50, 1, 1]} />
         <noiseMaterial ref={material} scale={1.5} />
       </mesh>
