@@ -29,7 +29,7 @@ const Lights = ({ position, debug }) => {
   );
 };
 
-export function Setup({
+export function StoryStage({
   children,
   cameraPosition = new THREE.Vector3(-5, 5, 5),
   controls = true,

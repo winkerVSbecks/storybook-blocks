@@ -1,10 +1,10 @@
 import React from 'react';
 import * as THREE from 'three';
 import { Globals } from '@react-spring/shared';
-import { Setup } from '../stories/Setup';
+import { StoryStage } from '../../.storybook/StoryStage';
+import { useTurntable } from '../../.storybook/useTurntable';
 import { Effects } from './Effects';
 import { SIDE } from '../constants';
-import { useTurntable } from '../stories/useTurntable';
 
 Globals.assign({
   frameLoop: 'always',
@@ -16,13 +16,13 @@ export default {
   decorators: [
     (storyFn) => {
       return (
-        <Setup
+        <StoryStage
           cameraPosition={new THREE.Vector3(-30, 30, 30)}
           lightPosition={[-10 * SIDE, 0, 2.5 * SIDE]}
           debugLights
         >
           {storyFn()}
-        </Setup>
+        </StoryStage>
       );
     },
   ],

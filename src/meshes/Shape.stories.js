@@ -1,7 +1,7 @@
 import React from 'react';
 import * as THREE from 'three';
-import { Setup } from '../stories/Setup';
-import { useTurntable } from '../stories/useTurntable';
+import { StoryStage } from '../../.storybook/StoryStage';
+import { useTurntable } from '../../.storybook/useTurntable';
 import { Shape } from './Shape';
 
 export default {
@@ -10,9 +10,9 @@ export default {
   decorators: [
     (storyFn) => {
       return (
-        <Setup cameraPosition={new THREE.Vector3(-30, 30, 30)} center>
+        <StoryStage cameraPosition={new THREE.Vector3(-30, 30, 30)} center>
           {storyFn()}
-        </Setup>
+        </StoryStage>
       );
     },
   ],

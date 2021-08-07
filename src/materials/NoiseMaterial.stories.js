@@ -1,7 +1,7 @@
 import React from 'react';
 import * as THREE from 'three';
 import { useFrame } from '@react-three/fiber';
-import { Setup } from '../stories/Setup';
+import { StoryStage } from '../../.storybook/StoryStage';
 import './NoiseMaterial';
 
 export default {
@@ -10,7 +10,9 @@ export default {
   decorators: [
     (storyFn) => {
       return (
-        <Setup cameraPosition={new THREE.Vector3(0, 0, 30)}>{storyFn()}</Setup>
+        <StoryStage cameraPosition={new THREE.Vector3(0, 0, 30)}>
+          {storyFn()}
+        </StoryStage>
       );
     },
   ],

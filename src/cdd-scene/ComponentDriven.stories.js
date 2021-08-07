@@ -1,7 +1,7 @@
 import React from 'react';
 import * as THREE from 'three';
-import { Setup } from '../stories/Setup';
-import { useTurntable } from '../stories/useTurntable';
+import { StoryStage } from '../../.storybook/StoryStage';
+import { useTurntable } from '../../.storybook/useTurntable';
 import { ComponentDriven } from './ComponentDriven';
 import { SIDE } from '../constants';
 import { useCDDState } from './useCDDState';
@@ -12,13 +12,13 @@ export default {
   decorators: [
     (storyFn) => {
       return (
-        <Setup
+        <StoryStage
           cameraPosition={new THREE.Vector3(-30, 30, 30)}
           lightPosition={[-10 * SIDE, 0, 2.5 * SIDE]}
           debugLights
         >
           {storyFn()}
-        </Setup>
+        </StoryStage>
       );
     },
   ],

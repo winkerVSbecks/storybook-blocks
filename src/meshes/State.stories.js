@@ -1,6 +1,6 @@
 import React from 'react';
 import * as THREE from 'three';
-import { Setup } from '../stories/Setup';
+import { StoryStage } from '../../.storybook/StoryStage';
 import { State } from './State';
 
 export default {
@@ -8,9 +8,9 @@ export default {
   decorators: [
     (storyFn) => {
       return (
-        <Setup cameraPosition={new THREE.Vector3(-30, 30, 30)}>
+        <StoryStage cameraPosition={new THREE.Vector3(-30, 30, 30)}>
           {storyFn()}
-        </Setup>
+        </StoryStage>
       );
     },
   ],
