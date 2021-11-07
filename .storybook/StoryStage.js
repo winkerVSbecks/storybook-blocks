@@ -32,6 +32,7 @@ const Lights = ({ position, debug }) => {
 export function StoryStage({
   children,
   cameraPosition = new THREE.Vector3(-5, 5, 5),
+  zoom = 10,
   controls = true,
   lights = true,
   lightPosition = [-10, -35, 5],
@@ -42,7 +43,7 @@ export function StoryStage({
   return (
     <Canvas shadows dpr={window.devicePixelRatio} {...restProps}>
       <color attach="background" args={['#06092c']} />
-      <OrthographicCamera makeDefault position={cameraPosition} zoom={10} />
+      <OrthographicCamera makeDefault position={cameraPosition} zoom={zoom} />
       {center ? <Center>{children}</Center> : children}
       {lights && <Lights debug={debugLights} position={lightPosition} />}
       {controls && <OrbitControls />}

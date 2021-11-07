@@ -47,7 +47,7 @@ const ShapeScene = ({ type }) => {
   return (
     <>
       <Shape ref={ref} type={type} color="#1EA7FD" />
-      <gridHelper args={[200, 40]} />
+      {/* <gridHelper args={[200, 40]} /> */}
     </>
   );
 };

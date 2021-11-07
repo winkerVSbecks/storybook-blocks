@@ -8,7 +8,7 @@ export default {
   decorators: [
     (storyFn) => {
       return (
-        <StoryStage cameraPosition={new THREE.Vector3(-30, 30, 30)}>
+        <StoryStage cameraPosition={new THREE.Vector3(-30, 30, 30)} zoom={6}>
           {storyFn()}
         </StoryStage>
       );

@@ -19,7 +19,6 @@ export default {
         <StoryStage
           cameraPosition={new THREE.Vector3(-30, 30, 30)}
           lightPosition={[-10 * SIDE, 0, 2.5 * SIDE]}
-          debugLights
         >
           {storyFn()}
         </StoryStage>
