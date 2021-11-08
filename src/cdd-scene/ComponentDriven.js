@@ -2,7 +2,7 @@ import React from 'react';
 import { useSpring } from '@react-spring/three';
 import { SIDE } from '../constants';
 import { colors } from '../colors';
-import { Shape } from '../meshes/Shape';
+import { TetrisBlock } from '../meshes/TetrisBlock';
 import { State } from '../meshes/State';
 import { Data } from '../meshes/Data';
 
@@ -20,11 +20,11 @@ export const ComponentDriven = ({ step, ...shapeProps }) => {
       position={[-2 * SIDE, -SIDE / 2, -SIDE]}
       rotation={[-Math.PI / 2, 0, 0]}
     >
-      <Shape type="I" position={springI.position} color={springI.color} />
-      <Shape type="L" position={springL.position} color={springL.color} />
-      <Shape type="Z" position={springZ.position} color={springZ.color} />
-      <Shape type="T" position={springT.position} color={springT.color} />
-      <Shape type="O" position={springO.position} color={springO.color} />
+      <TetrisBlock type="I" position={springI.position} color={springI.color} />
+      <TetrisBlock type="L" position={springL.position} color={springL.color} />
+      <TetrisBlock type="Z" position={springZ.position} color={springZ.color} />
+      <TetrisBlock type="T" position={springT.position} color={springT.color} />
+      <TetrisBlock type="O" position={springO.position} color={springO.color} />
       <Data position={springData.position} scale={springData.scale} />
       <State position={springState.position} scale={springState.scale} />
     </group>

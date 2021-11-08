@@ -2,11 +2,11 @@ import React from 'react';
 import * as THREE from 'three';
 import { StoryStage } from '../../.storybook/StoryStage';
 import { useTurntable } from '../../.storybook/useTurntable';
-import { Shape } from './Shape';
+import { TetrisBlock } from './TetrisBlock';
 
 export default {
-  title: 'Meshes/Shapes',
-  component: Shape,
+  title: 'Meshes/TetrisBlock',
+  component: TetrisBlock,
   decorators: [
     (storyFn) => {
       return (
@@ -46,7 +46,7 @@ const ShapeScene = ({ type }) => {
   const ref = useTurntable();
   return (
     <>
-      <Shape ref={ref} type={type} color="#1EA7FD" />
+      <TetrisBlock ref={ref} type={type} color="#1EA7FD" />
       {/* <gridHelper args={[200, 40]} /> */}
     </>
   );

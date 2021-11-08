@@ -6,7 +6,7 @@ import { SIDE, EXTRUDE_SETTINGS } from '../constants';
 
 const AnimatedExtrude = animated(Extrude);
 
-export const Shape = React.forwardRef(
+export const TetrisBlock = React.forwardRef(
   (
     {
       type,
